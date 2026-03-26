@@ -62,14 +62,14 @@ class HsaRocrDev(CMakePackage):
     depends_on("cxx", type="build")
 
     depends_on("cmake@3:", type="build")
-    depends_on("pkgconfig", type="build")
+    depends_on("pkg-config", type="build")
 
     # Note, technically only necessary when='@3.7: +image', but added to all
     # to work around https://github.com/spack/spack/issues/23951
     depends_on("xxd", when="+image", type="build")
     depends_on("elf", type="link")
     depends_on("numactl")
-    depends_on("pkgconfig")
+    depends_on("pkg-config")
     depends_on("libdrm", when="@6.3:")
 
     for ver in [

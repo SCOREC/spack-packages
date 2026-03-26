@@ -43,7 +43,7 @@ class Libxcb(AutotoolsPackage, XorgPackage):
     depends_on("xcb-proto@1.14:", when="@1.14", type="build")
 
     depends_on("python", type="build")
-    depends_on("pkgconfig", type="build")
+    depends_on("pkg-config", type="build")
     depends_on("util-macros", type="build")
 
     def configure_args(self):

@@ -105,7 +105,7 @@ class LlvmAmdgpu(CMakePackage, LlvmDetection, CompilerPackage):
     depends_on("zlib-api", type="link")
     depends_on("ncurses+termlib", type="link")
     depends_on("libxml2", type="link")
-    depends_on("pkgconfig", type="build")
+    depends_on("pkg-config", type="build")
 
     depends_on("numactl", when="@7.1:")
     depends_on("libdrm", when="@7.1:")
