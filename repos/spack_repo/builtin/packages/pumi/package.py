@@ -32,6 +32,7 @@ class Pumi(CMakePackage):
     # of pumi in spack.  The master branch is more stable than the
     # scorec/core develop branch and we prefer not to expose spack users
     # to the added instability.
+    version("develop", submodules=True, branch="develop")
     version("master", submodules=True, branch="master")
     version(
         "2.2.9", submodules=True, commit="f87525cae7597322edfb2ccf1c7d4437402d9481"
@@ -108,7 +109,7 @@ class Pumi(CMakePackage):
             args += ["-DCMAKE_CXX_STANDARD=11"]
         if self.spec.variants["simmodsuite"].value != "none":
             args.append("-DENABLE_SIMMETRIX=ON")
-            mpi_id = spec["mpi"].name + spec["mpi"].version.up_to(1).string
+            mpi_id = spec["mpi"].name + spec["mpi"].version.up_to(3).string
             args.append("-DSIM_MPI=" + mpi_id)
             if self.spec.variants["simmodsuite"].value in ["kernels", "full"]:
                 args.append("-DENABLE_SIMMETRIX=ON")

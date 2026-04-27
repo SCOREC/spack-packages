@@ -10,6 +10,48 @@ from spack.package import *
 
 RELEASES = [
     {
+        'version': '2026.0-260411',
+        'components': {
+           'discrete': ['eb86d8488a322f42abe76e49cc8a47ade1f01b3f226d1d3f8ffa7427215e2e2a', 'discrete'],
+           'msparalleladapt': ['d899cd1fad2fdf302487e0760a9da49c9cd2f5bdaab4b7b7dba94cec230eab1b', 'paralleladapt'],
+           'mscrack': ['d7f53467b8bfbcc5ffb1d530c4a6bfce7cddaef82abcf748e7822a5a52824842', 'crack'],
+           'aciskrnl': ['844bd77cbb9357481181a993f8bf726ae978b2a1ed1c2829d9f86898267047ba', 'acis'],
+           'opencascade': ['2311ee820ad51df6c4bf40b1ff90f8155c7d3b2d6b02f0758fc023b7226a07d4', 'opencascade'],
+           'pskrnl': ['9a66c89baa895eef7ef721c369b20f1502761a77b99e0838dc5edacbf78abf16', 'parasolid'],
+           'gmcore': ['766192518dbb799b5921100af1f87a26134ce663149b991e6f8f1eac677c5ce6', 'base'],
+           'msparallelmesh': ['3ee8233b6efd02ddce203199ae059a7440643b3f14a5026672c646e4a7e72ee7', 'parallelmesh'],
+           'gmabstract': ['7218bbf890582f13230e11d1e12f555a41b12922d82faf590f70ba9c31d0c9e2', 'abstract'],
+           'gmadv': ['5d910b5061ffd983548b7dc8b010eb207dbb44bb44f5c19be23df46e219d4538', 'advmodel'],
+           'msadapt': ['c2f9ef6bf359425431b22550cfdc0fec8f099db4e8cdac5fb67792db23fb6d2c', 'base'],
+           'gmvoxel': ['f348423794aa7951777c7729839c0db9a06db1a52be9070fc55bf78ad1eadbc6', 'voxel'],
+           'discretemodeling': ['3918533c839917264102588b98076a5b57637d6ce7082a2409f43b494927a3f8', 'discrete'],
+           'fdcore': ['9949fbf8984ef28b09f9066240c6f6f950bc15cd626915521142ad155bfe7ed9', 'base'],
+           'mscore': ['2cca5a251cd35021a982a74e22f2743c672879ed1c4b09155f7801adb3c9fbef', 'base'],
+           'octree': ['051314ea74c23b5d385ea3b07c12dc9799a2243b8ee0536b62814e986f7e91bf', 'octree'],
+           'msadv': ['8da301619fdfa0d9fb5bcdaca8f0ce04ce2b5609b9108c721d3ec6dc417a7c05', 'adv'],
+        },  
+        'docs': {
+           'ParallelMeshSim': ['e811aa0fa1e37b13f9cc403f144efb0d70ff220d4289a269c0a084d513b59c41', 'parallelmesh'],
+           'GeomSimVoxel': ['aab98e1ae15c53fb32e2076e98a09cc7dd97bb786140feadee98d5e41ce540d7', 'voxel'],
+           'GeomSimGranite': ['36f56db8b68989a14d8ae9f5b85e2a2df78fff62f0f0f84adb7e125f7c84c1a9', 'granite'],
+           'GeomSimOpenCascade': ['56c277c268be3e7a6adf450e3889dc2056eb2cec7aebc7da74c282febda86204', 'opencascade'],
+           'MeshSimOctree': ['4fea7d47906562aba0c1b6cab3967aed02cd27a9a3c3b70e79e8e54cdb1dae26', 'octree'],
+           'ParallelMeshSimAdapt': ['a3d5704f38562c22f8272c55ca6751beb01a89ab74f7881e222efd088ef3121f', 'paralleladapt'],
+           'MeshSim': ['32df7087c6019951dfafeb925df64a2870d880440c520cedd81f31206a0d53a5', 'base'],
+           'GeomSimDiscrete': ['f5d42dc792264df582a3e9499f35f5634f1f03c817efd2d1df96bb94d7ab1ec8', 'discrete'],
+           'GeomSimAbstract': ['fe6a878d28e84b9e965dec3caf72e5cdf4cf6b1bff230bc6799064b724f9af75', 'abstract'],
+           'GeomSim': ['deda7fad00c075c93db0bbdad205d023b8e115b6f94157de874e739548fe44cb', 'base'],
+           'GeomSimAcis': ['b4987abfa2ab6f01245bf49f10a2aae437944aa7863ac8fcd619886e7e464eaa', 'acis'],
+           'FieldSim': ['a22e9971a05b36a2b34d6f04b2d889d77f59baaa84ac8869fc9702c1ab031d25', 'base'],
+           'MeshSimAdapt': ['c35132422dbb8bb93411832f402ca3255fd298d7e0992e4c15a8c08515f21a85', 'base'],
+           'MeshSimCrack': ['a6c62bcc7c4d0f6ab0c5cf0711ccdfb55b4257c80709589363decf0cd3fc5d4d', 'crack'],
+           'MeshSimAdvanced': ['664061c9aef408f2f34b7f431f9e9406b56cba60ecab34aba4626220c36a2fd5', 'adv'],
+           'GeomSimDiscreteModeling': ['9bfe14805ebc4290d6d4c3b980ba844dab2a596255ee2c59868d4fb7670ce008', 'discrete'],
+           'GeomSimAdvanced': ['bea1285b7d085bd999fd4844eb009cf899568cdfb106f81cf899d64e94db43fe', 'advmodel'],
+           'GeomSimParasolid': ['157504b04129ae91af76a0e5ca977fb1484307815a81c5d25ad86b6bbebddbf8', 'parasolid'],
+        }   
+    },
+    {
         "version": "16.0-220312",
         "components": {
             "msparalleladapt": [
