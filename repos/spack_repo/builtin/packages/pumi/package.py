@@ -80,7 +80,7 @@ class Pumi(CMakePackage):
     depends_on("fortran", type="build", when="+fortran")
 
     depends_on("mpi")
-    depends_on("cmake@3:", type="build")
+    depends_on("cmake@3.12:", type="build")
     depends_on("zoltan", when="+zoltan")
     depends_on("zoltan+int64", when="+zoltan+int64")
     simbase = "+base"
@@ -148,10 +148,10 @@ class Pumi(CMakePackage):
 
         launcher = self.mpi_launcher()
         assert launcher is not None, (
-            "Cannot run tests due to absence of MPI launcher (srun, mpirun, mpiexec) in "
-            + [self.spec["mpi"].prefix.bin]
-            + "."
+            "Cannot run tests due to absence of MPI launcher (srun, mpirun,"
+            "mpiexec) in {0}.".format(self.spec["mpi"].prefix.bin)
         )
+        options += ["--immediate=30"] if launcher == "srun" else []
         out = launcher(*options, output=str.split, error=str.split)
         assert "mesh pipe_2_.smb written" in out
         return
