@@ -129,14 +129,15 @@ class Pumi(CMakePackage):
         except KeyError:
             tty.debug("Slurm not found, ignoring.")
         commands = ["srun", "mpirun", "mpiexec"]
-        return which(*commands, path=searchpath) or which(*commands)
+        return which(*commands, path=searchpath) or which(*commands), searchpath
 
     def test_partition(self):
         """Testing pumi mesh partitioning"""
         if self.spec.satisfies("@:2.2.6"):
             raise SkipTest("Package must be installed as version @2.2.7 or later")
 
-        options = [
+        options = ["--immediate=30"] if "srun" in launcher else []
+        options += [
             "-n",
             "2",
             join_path(self.prefix.bin, "split"),
@@ -146,12 +147,11 @@ class Pumi(CMakePackage):
             "2",
         ]
 
-        launcher = self.mpi_launcher()
+        launcher, searchpath = self.mpi_launcher()
         assert launcher is not None, (
             "Cannot run tests due to absence of MPI launcher (srun, mpirun,"
-            "mpiexec) in {0}.".format(self.spec["mpi"].prefix.bin)
+            "mpiexec) in {0}.".format(searchpath)
         )
-        options += ["--immediate=30"] if launcher == "srun" else []
         out = launcher(*options, output=str.split, error=str.split)
         assert "mesh pipe_2_.smb written" in out
         return
