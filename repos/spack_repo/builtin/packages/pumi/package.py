@@ -142,7 +142,7 @@ class Pumi(CMakePackage):
             "mpiexec) in {0}.".format(searchpath)
         )
 
-        options = ["--immediate=30"] if "srun" in launcher else []
+        options = ["--immediate=30"] if launcher.name == "srun" else []
         options += [
             "-n",
             "2",
