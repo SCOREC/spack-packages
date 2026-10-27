@@ -80,7 +80,7 @@ class Pumi(CMakePackage):
     depends_on("fortran", type="build", when="+fortran")
 
     depends_on("mpi")
-    depends_on("cmake@3.12:", type="build")
+    depends_on("cmake@3.12:", type="build", when="@4:")
     depends_on("zoltan", when="+zoltan")
     depends_on("zoltan+int64", when="+zoltan+int64")
     simbase = "+base"
@@ -138,7 +138,7 @@ class Pumi(CMakePackage):
 
         launcher, searchpath = self.mpi_launcher()
         assert launcher is not None, (
-            "Cannot run tests due to absence of MPI launcher (srun, mpirun,"
+            "Cannot run tests due to absence of MPI launcher (srun, mpirun, "
             "mpiexec) in {0}.".format(searchpath)
         )
 
@@ -155,7 +155,6 @@ class Pumi(CMakePackage):
 
         out = launcher(*options, output=str.split, error=str.split)
         assert "mesh pipe_2_.smb written" in out
-        return
 
     def test_refine(self):
         """Testing pumi uniform mesh refinement"""
